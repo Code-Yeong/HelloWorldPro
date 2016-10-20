@@ -24,5 +24,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0-alpha1'
     compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
     compile 'com.android.support:design:24.0.0'
-    compile 'com.android.support:recyclerview-v7:24.0.+'
+    compile 'com.android.support:recyclerview-v7:24.0.0-alpha1'
+    compile 'com.android.support:support-v4:24.0.0-alpha1'
 }

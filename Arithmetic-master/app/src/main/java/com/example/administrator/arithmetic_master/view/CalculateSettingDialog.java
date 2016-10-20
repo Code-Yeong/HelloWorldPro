@@ -21,6 +21,8 @@ import com.example.administrator.arithmetic_master.R;
  */
 public class CalculateSettingDialog extends DialogFragment {
 
+    private int grade;
+    private int num;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -49,6 +51,7 @@ public class CalculateSettingDialog extends DialogFragment {
         return builder.create();
     }
 
+    //在拥有该对话框的Activity中实现该接口，可以获得对话框的消息
     public interface NoticeDialogListener
     {
         public void onDialogPositiveClick(DialogFragment dialog);
@@ -93,8 +96,7 @@ public class CalculateSettingDialog extends DialogFragment {
         sp_grade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("selected Grade",parent.getItemAtPosition(position).toString());
-                User.getInstance().currentExeGrade=position+1;
+                grade=position+1;
             }
 
             @Override
@@ -106,8 +108,7 @@ public class CalculateSettingDialog extends DialogFragment {
         sp_questionNum.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("selected Num",parent.getItemAtPosition(position).toString());
-                User.getInstance().currentExeNum=Integer.parseInt(parent.getItemAtPosition(position).toString());
+                num=Integer.parseInt(parent.getItemAtPosition(position).toString());
             }
 
             @Override
@@ -118,5 +119,17 @@ public class CalculateSettingDialog extends DialogFragment {
         // Apply the adapter to the spinner
         sp_grade.setAdapter(gradeAdapter);
         sp_questionNum.setAdapter(questionNumAdapter);
+    }
+
+    //获得年级
+    public int getGrade()
+    {
+        return  grade;
+    }
+
+    //获得题目数量
+    public int getNum()
+    {
+        return num;
     }
 }
